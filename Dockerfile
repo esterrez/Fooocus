@@ -29,7 +29,7 @@ RUN apt-get update && \
     apt-get install -y \
         nvidia-container-toolkit
 
-RUN apt-get remove \
+RUN apt-get autoremove -y \
     curl gpg && \
   apt-get clean -y && \
   rm -rf /var/lib/apt/lists/*
