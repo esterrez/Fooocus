@@ -28,6 +28,8 @@ RUN adduser \
     --uid "${UID}" \
     appuser
 
+RUN chown -R appuser /app/models/checkpoints
+
 # Download dependencies as a separate step to take advantage of Docker's caching.
 # Leverage a cache mount to /root/.cache/pip to speed up subsequent builds.
 # Leverage a bind mount to requirements_versions.txt to avoid having to copy them into
