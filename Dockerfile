@@ -42,8 +42,6 @@ USER appuser
 # Copy the source code into the container.
 COPY . .
 
-VOLUME /app/config.txt
-VOLUME /app/config_modification_tutorial.txt
 VOLUME /app/models/checkpoints
 
 RUN chown -R appuser:appuser /app/models/checkpoints
