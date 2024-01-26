@@ -30,7 +30,7 @@ RUN apt-get update && \
         nvidia-container-toolkit
 
 RUN apt-get autoremove -y \
-    curl gpg && \
+    gpg && \
   apt-get clean -y && \
   rm -rf /var/lib/apt/lists/*
 
@@ -63,8 +63,10 @@ USER appuser
 COPY . .
 
 VOLUME /app/models/checkpoints
+VOLUME /app/models/loras
 
 RUN chown -R appuser:appuser /app/models/checkpoints
+RUN chown -R appuser:appuser /app/models/loras
 
 # Expose the port that the application listens on.
 EXPOSE 8000
